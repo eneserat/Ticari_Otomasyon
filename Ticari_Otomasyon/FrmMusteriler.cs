@@ -78,6 +78,7 @@ namespace Ticari_Otomasyon
         {
             listele();
             sehirlistesi();
+            this.Size = new Size(1942, 1102); 
         }
 
         private void cmbIL_SelectedIndexChanged(object sender, EventArgs e)

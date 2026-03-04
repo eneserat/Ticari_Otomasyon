@@ -58,5 +58,19 @@ namespace Ticari_Otomasyon
             }
 
         }
+
+        FrmPersoneller fr4;
+
+        private void btnPersoneller_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr4==null)
+            {
+                fr4=new FrmPersoneller();
+                fr4.MdiParent=this;
+                fr4.Show();
+
+
+            }
+        }
     }
 }
