@@ -169,5 +169,10 @@ namespace Ticari_Otomasyon
             MessageBox.Show("Müşteri Bilgileri Güncelledi" , "BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
             listele();
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
