@@ -234,5 +234,114 @@ namespace Ticari_Otomasyon
 
 
         }
+
+        private void groupControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupControl11_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut11 = new SqlCommand("insert into TBL_FİRMALAR (AD,SEKTOR,YETKILISTATU,YETKILIADSOYAD,YETKILITC,TELEFON1,TELEFON2,TELEFON3,MAIL,FAX,IL,ILCE,VERGIDAIRE,ADRES,OZELKOD1,OZELKOD2,OZELKOD3,SEKTOR) VALUES  (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16,@p17)", bgl.baglanti());
+            komut11.Parameters.AddWithValue("@p1", textEdit7.Text);
+            komut11.Parameters.AddWithValue("@p2" , textEdit8.Text);
+            komut11.Parameters.AddWithValue("@p2", txtYetkılıStatu.Text);
+            komut11.Parameters.AddWithValue("@p3", txtYetkılı.Text);
+            komut11.Parameters.AddWithValue("@p4", mskTc.Text);
+            komut11.Parameters.AddWithValue("@p5", mskTelefon1.Text);
+            komut11.Parameters.AddWithValue("@p6", mskTelefon2.Text);
+            komut11.Parameters.AddWithValue("@p7", mskTelefon3.Text);
+            komut11.Parameters.AddWithValue("@p8", txtFaks.Text);
+            komut11.Parameters.AddWithValue("@p9", textEdit6.Text);
+            komut11.Parameters.AddWithValue("@p10", Cmbil.Text);
+            komut11.Parameters.AddWithValue("@p11", Cmbİlce.Text);
+            komut11.Parameters.AddWithValue("@p12", textEdit9.Text);
+            komut11.Parameters.AddWithValue("@p13", richTextBox1.Text);
+            komut11.Parameters.AddWithValue("@p14", textEdit5.Text);
+            komut11.Parameters.AddWithValue("@p15", textEdit4.Text);
+            komut11.Parameters.AddWithValue("@p16", textEdit3.Text);
+            komut11.Parameters.AddWithValue("@p17", textEdit1.Text);
+            komut11.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Firma Sisteme Eklendi ", "BİLGİ ", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            FirmaListesi();
+            temizle();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+
+            SqlCommand komut12 = new SqlCommand("Delete From TBL_FİRMALAR WHERE ID=@p1", bgl.baglanti());
+            komut12.Parameters.AddWithValue("@p1", txtİd.Text);
+            komut12.Parameters.AddWithValue("@p2", txtFirmaAd.Text);
+            komut12.Parameters.AddWithValue("@p3", txtYetkılıStatu.Text);
+            komut12.Parameters.AddWithValue("@p4", txtYetkılı.Text);
+            komut12.Parameters.AddWithValue("@p5", mskTc.Text);
+            komut12.Parameters.AddWithValue("@p6", mskTelefon1.Text);
+            komut12.Parameters.AddWithValue("@p7", mskTelefon2.Text);
+            komut12.Parameters.AddWithValue("@p8", mskTelefon3.Text);
+            komut12.Parameters.AddWithValue("@p9", txtFaks.Text);
+            komut12.Parameters.AddWithValue("@p10", textEdit6.Text);
+            komut12.Parameters.AddWithValue("@p11", Cmbil.Text);
+            komut12.Parameters.AddWithValue("@p12", Cmbİlce.Text);
+            komut12.Parameters.AddWithValue("@p13", textEdit9.Text);
+            komut12.Parameters.AddWithValue("@p14", richTextBox1.Text);
+            komut12.Parameters.AddWithValue("@p15", textEdit5.Text);
+            komut12.Parameters.AddWithValue("@p16", textEdit4.Text);
+            komut12.Parameters.AddWithValue("@p17", textEdit3.Text);
+            komut12.Parameters.AddWithValue("@p18", textEdit1.Text);
+
+            if (string.IsNullOrEmpty(txtİd.Text))
+            {
+                MessageBox.Show("Lütfen silinecek Firma ID'sini girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (MessageBox.Show("Gerçekten silmek istiyor musunuz?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                SqlCommand komut = new SqlCommand(
+                    "DELETE FROM TBL_FİRMALAR WHERE ID=@p1",
+                    bgl.baglanti()
+                );
+                komut.Parameters.AddWithValue("@p1", txtİd.Text);
+
+                komut.ExecuteNonQuery();
+                MessageBox.Show("Firma sistemden silindi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut14 = new SqlCommand("Update TBL_FİRMALAR set  AD=@p1,YETKILISTATU=@p2,YETKILIADSOYAD=@p3,YETKILITC=@p4,TELEFON1=@p5,TELEFON2=@p6,TELEFON3=@p7,MAIL=@p8,FAX=@p9,IL=@p10,ILCE=@p11,VERGIDAIRE=@p12,ADRES=@p13,OZELKOD1=@p14,OZELKOD2=@p15,OZELKOD3=@p16,SEKTOR=@17 WHERE ID=@p18", bgl.baglanti());
+            komut14.Parameters.AddWithValue("@p1", txtFirmaAd.Text);
+            komut14.Parameters.AddWithValue("@p2", txtYetkılıStatu.Text);
+            komut14.Parameters.AddWithValue("@p3", txtYetkılı.Text);
+            komut14.Parameters.AddWithValue("@p4", mskTc.Text);
+            komut14.Parameters.AddWithValue("@p5", mskTelefon1.Text);
+            komut14.Parameters.AddWithValue("@p6", mskTelefon2.Text);
+            komut14.Parameters.AddWithValue("@p7", mskTelefon3.Text);
+            komut14.Parameters.AddWithValue("@p8", txtFaks.Text);
+            komut14.Parameters.AddWithValue("@p9", textEdit6.Text);
+            komut14.Parameters.AddWithValue("@p10", Cmbil.Text);
+            komut14.Parameters.AddWithValue("@p11", Cmbİlce.Text);
+            komut14.Parameters.AddWithValue("@p12", textEdit9.Text);
+            komut14.Parameters.AddWithValue("@p13", richTextBox1.Text);
+            komut14.Parameters.AddWithValue("@p14", textEdit5.Text);
+            komut14.Parameters.AddWithValue("@p15", textEdit4.Text);
+            komut14.Parameters.AddWithValue("@p16", textEdit3.Text);
+            komut14.Parameters.AddWithValue("@p17", textEdit1.Text);
+            MessageBox.Show("Firma Bilgileri Güncellendi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            temizle();
+        }
     }
 }

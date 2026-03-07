@@ -55,12 +55,7 @@ namespace Ticari_Otomasyon
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlCommand sqlCommand = new SqlCommand("Delete From TBL_URUNLER where ID=@p1", bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", txtID.Text);
-            sqlCommand.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Ürün Silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+          
 
         }
 
@@ -85,11 +80,34 @@ namespace Ticari_Otomasyon
 
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
+         
+
+        }
+
+        private void gridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand sqlCommand = new SqlCommand("Delete From TBL_URUNLER where ID=@p1", bgl.baglanti());
+            sqlCommand.Parameters.AddWithValue("@p1", txtID.Text);
+            sqlCommand.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Ürün Silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
             DataTable dt = new DataTable();
             SqlCommand sqlCommand = new SqlCommand("Update TBL_URUNLER set URUNAD=@p1,MARKA=@p2,MODEL=@p3,YIL=@p4,ADET=@p5,ALISFIYAT=@p6,SATISFIYAT=@p7,DETAY=@p8 where ID=@p9", bgl.baglanti());
             sqlCommand.Parameters.AddWithValue("@p1", txtAd.Text);
             sqlCommand.Parameters.AddWithValue("@p2", txtMarka.Text);
-                
+
             sqlCommand.Parameters.AddWithValue("@p3", txtModel.Text);
             sqlCommand.Parameters.AddWithValue("@p4", decimal.Parse(mskYil.Text));
             sqlCommand.Parameters.AddWithValue("@p5", int.Parse(nudAdet.Text));
@@ -101,12 +119,6 @@ namespace Ticari_Otomasyon
             bgl.baglanti().Close();
             MessageBox.Show("Ürün Bilgileri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             listele();
-
-        }
-
-        private void gridLookUpEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

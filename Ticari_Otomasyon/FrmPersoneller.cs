@@ -38,6 +38,19 @@ namespace Ticari_Otomasyon
             }
             bgl.baglanti().Close();
         }
+        void temizle()
+        {
+            txtPrsnlId.Text = "";
+            txtPrsnlAd.Text = "";
+            txtPrsnlSoyad.Text = "";
+            mskPrsnlTlfn.Text = "";
+            txtPrsnlMaıl.Text = "";
+            cmbPrsnIL.Text = "";
+            cmbPrsnlIlce.Text = "";
+            txtPrsnlAdres.Text = "";
+            txtPrsnlGorev.Text = "";
+
+        }
 
 
         private void groupControl1_Paint(object sender, PaintEventArgs e)
@@ -52,6 +65,7 @@ namespace Ticari_Otomasyon
         {
             Personel();
             sehirListesi();
+           
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -88,7 +102,7 @@ namespace Ticari_Otomasyon
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             SqlCommand komut21 = new SqlCommand("Delete From TBL_PERSONELLER WHERE ID=@p1 ", bgl.baglanti());
-            komut21.Parameters.AddWithValue("@p1", txtPrsnlId.Text);
+            komut21.Parameters.AddWithValue("@p1", txtPrsnlAd.Text);
             komut21.Parameters.AddWithValue("@p2", txtPrsnlSoyad.Text);
             komut21.Parameters.AddWithValue("@p3", mskPrsnlTlfn.Text);
             komut21.Parameters.AddWithValue("@p4", mskPrsnlTc.Text);
@@ -106,7 +120,7 @@ namespace Ticari_Otomasyon
             }
 
 
-            if (MessageBox.Show("Gerçekten silmek istiyor musunuz?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Silmek İstediğinize Emin Misiniz ?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 SqlCommand komut = new SqlCommand(
@@ -138,6 +152,28 @@ namespace Ticari_Otomasyon
             txtPrsnlAdres.Text = dt.Rows[0][7].ToString();
             txtPrsnlGorev.Text = dt.Rows[0][8].ToString();
          
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            temizle();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut31 = new SqlCommand("Update From TBL_PERSONELLER Set AD=@p1,SOYAD=@p2,TELEFON=@p3,TC=@p4,MAIL= @p5,IL=@p6,ILCE=@p6,ADRES=@p7,GOREV=@p8 WHERE ID =@p8", bgl.baglanti());
+            komut31.Parameters.AddWithValue("@p1", txtPrsnlAd.Text);
+            komut31.Parameters.AddWithValue("@p2", txtPrsnlSoyad.Text);
+            komut31.Parameters.AddWithValue("@p3", mskPrsnlTlfn.Text);
+            komut31.Parameters.AddWithValue("@p4", mskPrsnlTc.Text);
+            komut31.Parameters.AddWithValue("@p5", txtPrsnlMaıl.Text);
+            komut31.Parameters.AddWithValue("@p6", cmbPrsnIL.Text);
+            komut31.Parameters.AddWithValue("@p7", cmbPrsnlIlce.Text);
+            komut31.Parameters.AddWithValue("@p8", txtPrsnlAdres.Text);
+            komut31.Parameters.AddWithValue("@p8", txtPrsnlGorev.Text);
+            komut31.ExecuteNonQuery();  
+            MessageBox.Show("Personel Bilgisi Güncellendi ", "BİLGİ ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }

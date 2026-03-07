@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,6 +69,45 @@ namespace Ticari_Otomasyon
                 fr4=new FrmPersoneller();
                 fr4.MdiParent=this;
                 fr4.Show();
+
+
+            }
+        }
+        FrmRehber fr5;
+        private void btnRehber_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr5 == null)
+            {
+                fr5=new FrmRehber();
+                fr5.MdiParent=this;
+                fr5.Show();
+
+
+            }
+
+        }
+        FrmGiderler fr6;
+        private void btnGıderler_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr6==null)
+            {
+                fr6=new FrmGiderler();
+                fr6.MdiParent=this;
+                fr6.Show();
+
+
+            }
+
+        }
+        FrmBankalar fr7;
+
+        private void btnBankalar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr7==null)
+            {
+                fr7=new FrmBankalar();
+                fr7.MdiParent=this;
+                fr7.Show();
 
 
             }

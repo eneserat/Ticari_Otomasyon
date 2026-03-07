@@ -77,7 +77,7 @@
             this.btnFaturalar,
             this.btnAyarlar});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(8);
             this.ribbonControl1.MaxItemId = 17;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 805;
@@ -230,6 +230,7 @@
             this.btnGıderler.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGıderler.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnGıderler.Name = "btnGıderler";
+            this.btnGıderler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGıderler_ItemClick);
             // 
             // btnKasa
             // 
@@ -277,6 +278,7 @@
             this.btnBankalar.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnBankalar.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnBankalar.Name = "btnBankalar";
+            this.btnBankalar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBankalar_ItemClick);
             // 
             // btnRehber
             // 
@@ -293,6 +295,7 @@
             this.btnRehber.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRehber.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnRehber.Name = "btnRehber";
+            this.btnRehber.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRehber_ItemClick);
             // 
             // btnFaturalar
             // 
