@@ -21,7 +21,7 @@ namespace Ticari_Otomasyon
         void listele ()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(" Execute BankaBilgileri",bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Execute BankaBilgileri",bgl.baglanti());
             da.Fill (dt);
             gridControl1.DataSource= dt;
 
@@ -41,14 +41,15 @@ namespace Ticari_Otomasyon
         void firmaListesi()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select ID,AD From TBL_FİRMALAR ", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("Select FİRMAID,AD From TBL_FİRMALAR ", bgl.baglanti());
             da.Fill (dt);
-            lookUpEdit1.Properties.ValueMember = "ID";
+            lookUpEdit1.Properties.ValueMember = "FİRMAID";
             lookUpEdit1.Properties.DisplayMember = "AD";
             lookUpEdit1.Properties.DataSource = dt;
         }
         void temizle()
         {
+            txtBankaId.Text = "";
             txtBankaAdı.Text = "";
             cmbBankaIl.Text  = "";
             cmbBankaIlce.Text = "";
@@ -60,18 +61,25 @@ namespace Ticari_Otomasyon
             mskTelefon.Text = "";
             mskTarıh.Text = "";
             txtHesapTuru.Text = "";
-            lookUpEdit1.EditValue = "";
+            lookUpEdit1.Text = "";
         }
 
         private void FrmBankalar_Load(object sender, EventArgs e)
         {
             listele ();
             sehirListesi();
+            firmaListesi();
             temizle();
         }
 
         private void simpleButton8_Click(object sender, EventArgs e)
         {
+            if (lookUpEdit1.EditValue == null)
+            {
+                MessageBox.Show("Lütfen bir firma seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
             SqlCommand komutekle = new SqlCommand("insert into TBL_BANKALAR (BANKAADI,IL,ILCE,SUBE,IBAN,HESAPNO,YETKILI,TELEFON,TARIH,HESAPTURU,FIRMAID) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11)",bgl.baglanti());
             komutekle.Parameters.AddWithValue("@p1", txtBankaAdı.Text);
             komutekle.Parameters.AddWithValue("@p2", cmbBankaIl.Text);
@@ -107,16 +115,16 @@ namespace Ticari_Otomasyon
                 txtBankaId.Text = dr["ID"].ToString();
             
                 txtBankaAdı.Text = dr["BANKAADI"].ToString();
-                cmbBankaIl.Text = dr["SUBE"].ToString();
-                cmbBankaIlce.Text = dr["IBAN"].ToString();
-                txtBankaSube.Text = dr["HESAPNO"].ToString();
-                txtIban.Text = dr["YETKILI"].ToString();
-                txtHesapNumarası.Text = dr["TARIH"].ToString();
-                txtYetkılı.Text = dr["HESAPTURU"].ToString();
+                cmbBankaIl.Text = dr["IL"].ToString();
+                cmbBankaIlce.Text = dr["ILCE"].ToString();
+                txtBankaSube.Text = dr["SUBE"].ToString();
+                txtIban.Text = dr["IBAN"].ToString();
+                txtHesapNumarası.Text = dr["HESAPNO"].ToString();
+                txtYetkılı.Text = dr["YETKILI"].ToString();
                 mskTelefon.Text = dr["TELEFON"].ToString() ;
                 mskTarıh.Text = dr["TARIH"].ToString();
                 txtHesapTuru.Text = dr["HESAPTURU"].ToString();
-                lookUpEdit1.Text = dr["AD"].ToString();
+             
               
 
 

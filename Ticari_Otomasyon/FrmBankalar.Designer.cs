@@ -138,7 +138,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit1.Properties.NullText = "Bir Firma Seçin";
             this.lookUpEdit1.Size = new System.Drawing.Size(151, 28);
-            this.lookUpEdit1.TabIndex = 30;
+            this.lookUpEdit1.TabIndex = 12;
             this.lookUpEdit1.EditValueChanged += new System.EventHandler(this.lookUpEdit1_EditValueChanged);
             // 
             // mskTelefon
@@ -147,7 +147,7 @@
             this.mskTelefon.Mask = "(999) 000-0000";
             this.mskTelefon.Name = "mskTelefon";
             this.mskTelefon.Size = new System.Drawing.Size(151, 23);
-            this.mskTelefon.TabIndex = 29;
+            this.mskTelefon.TabIndex = 9;
             this.mskTelefon.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefon_MaskInputRejected);
             // 
             // labelControl20
@@ -185,14 +185,14 @@
             this.txtHesapTuru.Location = new System.Drawing.Point(170, 498);
             this.txtHesapTuru.Name = "txtHesapTuru";
             this.txtHesapTuru.Size = new System.Drawing.Size(151, 22);
-            this.txtHesapTuru.TabIndex = 24;
+            this.txtHesapTuru.TabIndex = 11;
             // 
             // txtIban
             // 
             this.txtIban.Location = new System.Drawing.Point(170, 278);
             this.txtIban.Name = "txtIban";
             this.txtIban.Size = new System.Drawing.Size(151, 22);
-            this.txtIban.TabIndex = 23;
+            this.txtIban.TabIndex = 6;
             // 
             // labelControl17
             // 
@@ -211,7 +211,7 @@
             this.cmbBankaIlce.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbBankaIlce.Size = new System.Drawing.Size(151, 22);
-            this.cmbBankaIlce.TabIndex = 21;
+            this.cmbBankaIlce.TabIndex = 4;
             // 
             // cmbBankaIl
             // 
@@ -220,7 +220,7 @@
             this.cmbBankaIl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbBankaIl.Size = new System.Drawing.Size(151, 22);
-            this.cmbBankaIl.TabIndex = 20;
+            this.cmbBankaIl.TabIndex = 3;
             this.cmbBankaIl.SelectedIndexChanged += new System.EventHandler(this.cmbBankaIl_SelectedIndexChanged);
             // 
             // txtYetkılı
@@ -228,14 +228,14 @@
             this.txtYetkılı.Location = new System.Drawing.Point(170, 372);
             this.txtYetkılı.Name = "txtYetkılı";
             this.txtYetkılı.Size = new System.Drawing.Size(151, 22);
-            this.txtYetkılı.TabIndex = 19;
+            this.txtYetkılı.TabIndex = 8;
             // 
             // txtHesapNumarası
             // 
             this.txtHesapNumarası.Location = new System.Drawing.Point(170, 327);
             this.txtHesapNumarası.Name = "txtHesapNumarası";
             this.txtHesapNumarası.Size = new System.Drawing.Size(151, 22);
-            this.txtHesapNumarası.TabIndex = 18;
+            this.txtHesapNumarası.TabIndex = 7;
             // 
             // mskTarıh
             // 
@@ -243,7 +243,7 @@
             this.mskTarıh.Mask = "00/00/0000";
             this.mskTarıh.Name = "mskTarıh";
             this.mskTarıh.Size = new System.Drawing.Size(151, 23);
-            this.mskTarıh.TabIndex = 17;
+            this.mskTarıh.TabIndex = 10;
             this.mskTarıh.ValidatingType = typeof(System.DateTime);
             // 
             // txtBankaSube
@@ -251,21 +251,21 @@
             this.txtBankaSube.Location = new System.Drawing.Point(170, 235);
             this.txtBankaSube.Name = "txtBankaSube";
             this.txtBankaSube.Size = new System.Drawing.Size(151, 22);
-            this.txtBankaSube.TabIndex = 16;
+            this.txtBankaSube.TabIndex = 5;
             // 
             // txtBankaAdı
             // 
             this.txtBankaAdı.Location = new System.Drawing.Point(170, 90);
             this.txtBankaAdı.Name = "txtBankaAdı";
             this.txtBankaAdı.Size = new System.Drawing.Size(151, 22);
-            this.txtBankaAdı.TabIndex = 13;
+            this.txtBankaAdı.TabIndex = 2;
             // 
             // txtBankaId
             // 
             this.txtBankaId.Location = new System.Drawing.Point(170, 50);
             this.txtBankaId.Name = "txtBankaId";
             this.txtBankaId.Size = new System.Drawing.Size(151, 22);
-            this.txtBankaId.TabIndex = 12;
+            this.txtBankaId.TabIndex = 1;
             // 
             // simpleButton5
             // 
@@ -274,7 +274,7 @@
             this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
             this.simpleButton5.Location = new System.Drawing.Point(19, 650);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(113, 37);
+            this.simpleButton5.Size = new System.Drawing.Size(120, 37);
             this.simpleButton5.TabIndex = 11;
             this.simpleButton5.Text = "Temizle";
             this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
@@ -286,7 +286,7 @@
             this.simpleButton6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
             this.simpleButton6.Location = new System.Drawing.Point(19, 593);
             this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(113, 39);
+            this.simpleButton6.Size = new System.Drawing.Size(120, 39);
             this.simpleButton6.TabIndex = 10;
             this.simpleButton6.Text = "Sil";
             this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
@@ -296,9 +296,9 @@
             this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton7.ImageOptions.Image")));
-            this.simpleButton7.Location = new System.Drawing.Point(207, 650);
+            this.simpleButton7.Location = new System.Drawing.Point(197, 650);
             this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(114, 37);
+            this.simpleButton7.Size = new System.Drawing.Size(124, 37);
             this.simpleButton7.TabIndex = 9;
             this.simpleButton7.Text = "Güncelle";
             this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
@@ -308,9 +308,9 @@
             this.simpleButton8.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.simpleButton8.Appearance.Options.UseFont = true;
             this.simpleButton8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton8.ImageOptions.Image")));
-            this.simpleButton8.Location = new System.Drawing.Point(207, 591);
+            this.simpleButton8.Location = new System.Drawing.Point(197, 591);
             this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(114, 39);
+            this.simpleButton8.Size = new System.Drawing.Size(124, 39);
             this.simpleButton8.TabIndex = 8;
             this.simpleButton8.Text = "Kaydet";
             this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);

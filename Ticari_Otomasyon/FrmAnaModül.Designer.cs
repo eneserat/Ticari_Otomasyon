@@ -311,6 +311,7 @@
             this.btnFaturalar.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnFaturalar.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnFaturalar.Name = "btnFaturalar";
+            this.btnFaturalar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFaturalar_ItemClick);
             // 
             // btnAyarlar
             // 

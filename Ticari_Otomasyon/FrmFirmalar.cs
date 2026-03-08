@@ -101,8 +101,8 @@ namespace Ticari_Otomasyon
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             DataTable dt = new DataTable();
-            SqlCommand sqlCommand = new SqlCommand("Select * From TBL_FİRMALAR where ID=@p1", bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", gridView1.GetFocusedRowCellValue("ID").ToString());
+            SqlCommand sqlCommand = new SqlCommand("Select * From TBL_FİRMALAR where FİRMAID=@p1", bgl.baglanti());
+            sqlCommand.Parameters.AddWithValue("@p1", gridView1.GetFocusedRowCellValue("FİRMAID").ToString());
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
             da.Fill(dt);
             txtİd.Text = dt.Rows[0][0].ToString();
