@@ -167,7 +167,7 @@ namespace Ticari_Otomasyon
 
         private void simpleButton7_Click(object sender, EventArgs e)
         {
-            SqlCommand update = new SqlCommand("update TBL_BANKALAR  set  BANKAADI=@P1,IL=@P2,ILCE=@P3,SUBE=@P4,IBAN=@P5,HESAPNO=@P6,YETKILI=@P7,TELEFON=@P8,TARIH=@P9,HESAPTURU=@P10,FIRMAID=P11 WHERE ID =@12", bgl.baglanti());
+            SqlCommand update = new SqlCommand("update TBL_BANKALAR  set  BANKAADI=@P1,IL=@P2,ILCE=@P3,SUBE=@P4,IBAN=@P5,HESAPNO=@P6,YETKILI=@P7,TELEFON=@P8,TARIH=@P9,HESAPTURU=@P10,FIRMAID=@P11 WHERE ID =@P12", bgl.baglanti());
             update.Parameters.AddWithValue("@p1", txtBankaAdı.Text);
             update.Parameters.AddWithValue("@p2", cmbBankaIl.Text);
             update.Parameters.AddWithValue("@p3", cmbBankaIlce.Text);

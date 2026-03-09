@@ -263,6 +263,7 @@
             this.btnNotlar.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNotlar.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnNotlar.Name = "btnNotlar";
+            this.btnNotlar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNotlar_ItemClick);
             // 
             // btnBankalar
             // 

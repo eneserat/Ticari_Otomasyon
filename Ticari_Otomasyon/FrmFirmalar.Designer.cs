@@ -1724,6 +1724,7 @@
             // FrmFirmalar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1382, 707);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.xtraTabControl1);
