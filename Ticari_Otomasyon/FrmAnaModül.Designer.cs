@@ -121,6 +121,7 @@
             this.btnStoklar.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnStoklar.ItemAppearance.Pressed.Options.UseFont = true;
             this.btnStoklar.Name = "btnStoklar";
+            this.btnStoklar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStoklar_ItemClick);
             // 
             // btnMusterıler
             // 
@@ -366,6 +367,7 @@
             this.barButtonItem2.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.barButtonItem2.ItemAppearance.Pressed.Options.UseFont = true;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // ribbonPage1
             // 
