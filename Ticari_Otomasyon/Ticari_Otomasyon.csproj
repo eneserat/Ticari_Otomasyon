@@ -67,6 +67,12 @@
     <Compile Include="Faturalar.Designer.cs">
       <DependentUpon>Faturalar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdmin.Designer.cs">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAnaModül.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <Compile Include="SqlBaglantisi.cs" />
     <EmbeddedResource Include="Faturalar.resx">
       <DependentUpon>Faturalar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdmin.resx">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAnaModül.resx">
       <DependentUpon>FrmAnaModül.cs</DependentUpon>

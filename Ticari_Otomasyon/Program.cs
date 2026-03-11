@@ -20,7 +20,7 @@ namespace Ticari_Otomasyon
             Application.SetCompatibleTextRenderingDefault(false);
             Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("tr-TR");
-            Application.Run(new Form1());
+            Application.Run(new FrmAdmin());
         }
     }
 }
