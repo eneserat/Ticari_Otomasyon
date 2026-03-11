@@ -110,6 +110,7 @@ namespace Ticari_Otomasyon
             komutsil.Parameters.AddWithValue("@P1", txtFaturaId.Text);
             komutsil.ExecuteNonQuery();
             bgl.baglanti().Close();
+            listele();
             MessageBox.Show("Fatura Bilgisi Sistemden Başarıyla Silindi " , "BİLGİ ", MessageBoxButtons.OK, MessageBoxIcon.Information );
         }
 
@@ -127,6 +128,7 @@ namespace Ticari_Otomasyon
             komutguncelle.Parameters.AddWithValue("@P9", txtFaturaId.Text);
             komutguncelle.ExecuteNonQuery();
             bgl.baglanti().Close();
+            listele();
             MessageBox.Show("Fatura Bilgileri Başarıyla Güncellendi" , "BİLGİ " , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
@@ -146,6 +148,11 @@ namespace Ticari_Otomasyon
 
             }
             fr.Show();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            temizle();
         }
     }
 }

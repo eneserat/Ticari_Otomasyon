@@ -152,6 +152,7 @@
             this.simpleButton4.Size = new System.Drawing.Size(115, 39);
             this.simpleButton4.TabIndex = 25;
             this.simpleButton4.Text = "Temizle";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton3
             // 
@@ -177,6 +178,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(122, 39);
             this.simpleButton2.TabIndex = 23;
             this.simpleButton2.Text = "Kaydet";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // btnListele
             // 

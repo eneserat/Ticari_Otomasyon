@@ -25,6 +25,20 @@ namespace Ticari_Otomasyon
             da.Fill(dt);
             gridControl1.DataSource = dt;
         }   
+        void temizle()
+        {
+            txtID.Text = "";
+            txtAd.Text = "";
+            txtMarka.Text = "";
+            txtModel.Text = "";
+            mskYil.Text = "";
+            nudAdet.Text = "";
+            txtAlisFiyat.Text = "";
+            txtSatisFiyat.Text = "";
+            rtbDetay.Text = "";
+
+
+        }
 
         private void FrmÜrünler_Load(object sender, EventArgs e)
         {
@@ -35,22 +49,6 @@ namespace Ticari_Otomasyon
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            
-            SqlCommand komut = new SqlCommand("insert into TBL_URUNLER (URUNAD,MARKA,MODEL,YIL,ADET,ALISFIYAT,SATISFIYAT,DETAY) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", txtAd.Text);
-            komut.Parameters.AddWithValue("@p2", txtMarka.Text);
-            komut.Parameters.AddWithValue("@p3", txtModel.Text);
-            komut.Parameters.AddWithValue("@p4", decimal.Parse(mskYil.Text));
-            komut.Parameters.AddWithValue("@p5", int.Parse(nudAdet.Text));
-            komut.Parameters.AddWithValue("@p6", decimal.Parse(txtAlisFiyat.Text));
-            komut.Parameters.AddWithValue("@p7", decimal.Parse(txtSatisFiyat.Text));
-            komut.Parameters.AddWithValue("@p8", rtbDetay.Text);
-            komut.ExecuteNonQuery();
-            bgl.baglanti().Close(); 
-            MessageBox.Show("Ürün Sisteme Kaydedildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            listele();
-
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -95,7 +93,9 @@ namespace Ticari_Otomasyon
             SqlCommand sqlCommand = new SqlCommand("Delete From TBL_URUNLER where ID=@p1", bgl.baglanti());
             sqlCommand.Parameters.AddWithValue("@p1", txtID.Text);
             sqlCommand.ExecuteNonQuery();
+            listele();
             bgl.baglanti().Close();
+
             MessageBox.Show("Ürün Silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
@@ -118,6 +118,30 @@ namespace Ticari_Otomasyon
             sqlCommand.ExecuteNonQuery();
             bgl.baglanti().Close();
             MessageBox.Show("Ürün Bilgileri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            listele();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            temizle();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            SqlCommand komut = new SqlCommand("insert into TBL_URUNLER (URUNAD,MARKA,MODEL,YIL,ADET,ALISFIYAT,SATISFIYAT,DETAY) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", txtAd.Text);
+            komut.Parameters.AddWithValue("@p2", txtMarka.Text);
+            komut.Parameters.AddWithValue("@p3", txtModel.Text);
+            komut.Parameters.AddWithValue("@p4", decimal.Parse(mskYil.Text));
+            komut.Parameters.AddWithValue("@p5", int.Parse(nudAdet.Text));
+            komut.Parameters.AddWithValue("@p6", decimal.Parse(txtAlisFiyat.Text));
+            komut.Parameters.AddWithValue("@p7", decimal.Parse(txtSatisFiyat.Text));
+            komut.Parameters.AddWithValue("@p8", rtbDetay.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Ürün Sisteme Kaydedildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }
     }
