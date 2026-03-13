@@ -28,6 +28,7 @@ namespace Ticari_Otomasyon
             if (reader.Read())
             {
                 Form1 fr = new Form1();
+                fr.kullanici=txtKullaniciAd.Text;
                 fr.Show();
                 this.Hide();
 
@@ -38,6 +39,11 @@ namespace Ticari_Otomasyon
             }
 
 
+
+        }
+
+        private void FrmAdmin_Load(object sender, EventArgs e)
+        {
 
         }
     }

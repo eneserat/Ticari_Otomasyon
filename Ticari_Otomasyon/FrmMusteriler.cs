@@ -17,168 +17,96 @@ namespace Ticari_Otomasyon
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl = new SqlBaglantisi();
-        void listele()
+        void musterilistele()
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From TBL_MUSTERİLER", bgl.baglanti());
+            DataTable dt =new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * From TBL_MUSTERİLER",bgl.baglanti());
             da.Fill(dt);
             gridControl1.DataSource = dt;
         }
-        void sehirlistesi()
+        void sehirListesi()
         {
             SqlCommand komut = new SqlCommand("Select Sehir From TBL_İLLER", bgl.baglanti());
             SqlDataReader dr = komut.ExecuteReader();
-            while (dr.Read()) 
-            {
-                cmbIL.Properties.Items.Add(dr[0]);
-
-            }
-            bgl.baglanti().Close();
-        }
-        void ilcelistesi()
-        {
-            SqlCommand komut = new SqlCommand("Select İlce From TBL_İLCELER",bgl.baglanti());   
-            SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
             {
-                cmbILCE.Properties.Items.Add(dr[0]);
+                comboBoxEdit1.Properties.Items.Add(dr[0]);
+
             }
             bgl.baglanti().Close();
-            
         }
 
-        private void btnKaydet_Click(object sender, EventArgs e)
+        void musteritemizle()
         {
-
-            
-            SqlCommand komut2 = new SqlCommand("insert into TBL_MUSTERİLER (AD,SOYAD,TELEFON,TELEFON2,TC,MAIL,IL,ILCE,ADRES,VERGIDAIRE) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10)",bgl.baglanti()) ;
-            komut2.Parameters.AddWithValue("@p1", txtMustAd.Text);
-            komut2.Parameters.AddWithValue("@p2", txtMustSoyad.Text);
-            komut2.Parameters.AddWithValue("@p3", mskTelefonBir.Text);
-            komut2.Parameters.AddWithValue("@p4", mskTelefonİki.Text);
-            komut2.Parameters.AddWithValue("@p5", mskTC.Text);
-            komut2.Parameters.AddWithValue("@p6", txtMustMaıl.Text);
-            komut2.Parameters.AddWithValue("@p7", cmbIL.Text);
-            komut2.Parameters.AddWithValue("@p8",cmbILCE.Text);
-            komut2.Parameters.AddWithValue("@p9", richTextBox1.Text);
-            komut2.Parameters.AddWithValue("@p10", txtVergi.Text);  
-            komut2.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Müşteri Sisteme Eklendi ", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
-
-
-
+            textEdit2.Text = "";
+            textEdit7.Text = "";
+            textEdit8.Text = "";
+            textEdit10.Text = "";
+            textEdit11.Text = "";
+            maskedTextBox1.Text = "";
+            textEdit1.Text = "";
+            comboBoxEdit1.Text = "";
+            comboBoxEdit2.Text = "";
+            textEdit12.Text = "";
+            textEdit13.Text = "";
         }
 
+        SqlBaglantisi bgl = new SqlBaglantisi();
         private void FrmMusteriler_Load(object sender, EventArgs e)
         {
-            listele();
-            sehirlistesi();
-            this.Size = new Size(1942, 1102); 
+
+            musterilistele();
         }
 
-        private void cmbIL_SelectedIndexChanged(object sender, EventArgs e)
+        private void simpleButton5_Click(object sender, EventArgs e)
         {
-            cmbILCE.Properties.Items.Clear();
-            SqlCommand sqlCommand = new SqlCommand("Select İLCE From TBL_İLCELER Where Sehir=@p1 ",bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", cmbIL.SelectedIndex+1);
-            SqlDataReader reader = sqlCommand.ExecuteReader();
-            while (reader.Read()) 
-            {
-                cmbILCE.Properties.Items.Add(reader[0]);
-            }
-
-        }
-
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            DataTable dt = new DataTable();
-            SqlCommand sqlCommand = new SqlCommand("Select * From TBL_MUSTERİLER where ID=@p1", bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", gridView1.GetFocusedRowCellValue("ID").ToString());
-            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-            da.Fill(dt);
-            txtMustID.Text = dt.Rows[0][0].ToString();
-            txtMustAd.Text = dt.Rows[0][1].ToString();
-            txtMustSoyad.Text = dt.Rows[0][2].ToString();
-            mskTelefonBir.Text = dt.Rows[0][3].ToString();
-            mskTelefonİki.Text = dt.Rows[0][4].ToString();
-            mskTC.Text = dt.Rows[0][5].ToString();
-            txtMustMaıl.Text = dt.Rows[0][6].ToString();
-            cmbIL.Text = dt.Rows[0][7].ToString();
-            cmbILCE.Text = dt.Rows[0][8].ToString();
-            richTextBox1.Text = dt.Rows[0][9].ToString();
-            txtVergi.Text=dt.Rows[0][10].ToString();
-
+            musteritemizle();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCommand = new SqlCommand("Delete From TBL_MUSTERİLER Where ID =@p1 ",bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", txtMustID.Text);
-            sqlCommand.Parameters.AddWithValue("@p2", txtMustAd.Text);
-            sqlCommand.Parameters.AddWithValue("@p3", txtMustSoyad.Text);
-            sqlCommand.Parameters.AddWithValue("@p4", mskTelefonBir.Text);
-            sqlCommand.Parameters.AddWithValue("@p5", mskTelefonİki.Text);
-            sqlCommand.Parameters.AddWithValue("@p6", mskTC.Text);
-            sqlCommand.Parameters.AddWithValue("@p7", cmbIL.Text);
-            sqlCommand.Parameters.AddWithValue("@p8", cmbILCE.Text);
-            sqlCommand.Parameters.AddWithValue("@p9", txtMustID.Text);
-            sqlCommand.Parameters.AddWithValue("@p10", richTextBox1.Text);
-            sqlCommand.Parameters.AddWithValue("@p11", txtVergi.Text);
+            SqlCommand komutmusteriekle = new SqlCommand("insert into TBL_MUSTERİLER  (AD,SOYAD,TELEFON,TELEFON2,TC,MAIL,IL,ILCE,ADRES,VERGIDAIRE) VALUES (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10", bgl.baglanti());
+            komutmusteriekle.Parameters.AddWithValue("@p1", textEdit2.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p2", textEdit7.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p3", textEdit8.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p4", textEdit10.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p5", textEdit11.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p6", maskedTextBox1.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p7", textEdit1.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p8", comboBoxEdit1.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p9", comboBoxEdit2.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p10", textEdit12.Text);
+            komutmusteriekle.Parameters.AddWithValue("@p11", textEdit13.Text);
+            komutmusteriekle.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Müşteri Sisteme Başarıyla Eklendi ", "BİLGİ " , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            musteritemizle();
+        }
 
-            if (string.IsNullOrEmpty(txtMustID.Text))
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            if (dr!= null)
             {
-                MessageBox.Show("Lütfen silinecek müşteri ID'sini girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                //textEdit2.Text = dr["FİRMAID"].ToString();
+                //textEdit7.Text = dr["AD"].ToString();
+                //textEdit8.Text = dr["SEKTOR"].ToString();
+                //textEdit10.Text = dr["YETKILIADSOYAD"].ToString();
+                //textEdit11.Text = dr["YETKILISTATU"].ToString();
+                //maskedTextBox1.Text = dr["YETKILITC"].ToString();
+                //maskedTextBox2.Text = dr["TELEFON1"].ToString();
+                //maskedTextBox3.Text = dr["TELEFON2"].ToString();
+                //maskedTextBox4.Text = dr["TELEFON3"].ToString();
+                //textEdit12.Text = dr["FAX"].ToString();
+                //textEdit13.Text = dr["MAIL"].ToString();
+                //comboBoxEdit1.Text = dr["IL"].ToString();
+                //comboBoxEdit2.Text = dr["ILCE"].ToString();
+                //comboBoxEdit2.Text = dr["ILCE"].ToString();
+                //textEdit14.Text = dr["VERGIDAIRE"].ToString();
+                //textEdit14.Text = dr["VERGIDAIRE"].ToString();
+                //richTextBox5.Text = dr["ADRES"].ToString();
+
             }
-
-            
-            if (MessageBox.Show("Gerçekten silmek istiyor musunuz?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                
-                SqlCommand komut = new SqlCommand(
-                    "DELETE FROM TBL_MUSTERİLER WHERE ID=@p1",
-                    bgl.baglanti()
-                );
-                komut.Parameters.AddWithValue("@p1", txtMustID.Text); 
-
-                komut.ExecuteNonQuery(); 
-                MessageBox.Show("Müşteri sistemden silindi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-  
-
-        private void btnGüncelle_Click(object sender, EventArgs e)
-        {
-            SqlCommand komut1 = new SqlCommand("Update TBL_MUSTERİLER set AD=@p1,SOYAD=@p2,TELEFON=@p3,TELEFON2=@p4,TC=@p5,MAIL=@p6,IL=@p7,ILCE=@p8,ADRES=@p9,VERGIDAIRE=@p10 where ID = @p11", bgl.baglanti());
-            komut1.Parameters.AddWithValue("@p1", txtMustAd.Text);
-            komut1.Parameters.AddWithValue("@p2", txtMustSoyad.Text);
-            komut1.Parameters.AddWithValue("@p3", mskTelefonBir.Text);
-            komut1.Parameters.AddWithValue("@p4", mskTelefonİki.Text);
-            komut1.Parameters.AddWithValue("@p5", mskTC.Text);
-            komut1.Parameters.AddWithValue("@p6", cmbIL.Text);
-            komut1.Parameters.AddWithValue("@p7", cmbILCE.Text);
-            komut1.Parameters.AddWithValue("@p8", txtMustID.Text);
-            komut1.Parameters.AddWithValue("@p9", richTextBox1.Text);
-            komut1.Parameters.AddWithValue("@p10", txtVergi.Text);
-            komut1.Parameters.AddWithValue("@p11", txtMustID.Text);
-            MessageBox.Show("Müşteri Bilgileri Güncelledi" , "BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-            listele();
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridControl1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

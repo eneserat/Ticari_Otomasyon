@@ -176,5 +176,37 @@ namespace Ticari_Otomasyon
             }
 
         }
+        FrmAyarlar fr13;
+        private void btnAyarlar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr13==null)
+            {
+                fr13=new FrmAyarlar();
+              
+                fr13.Show();
+
+
+            }
+        }
+        FrmKasa fr14;
+
+        private void btnKasa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (fr14==null)
+            {
+                fr14=new FrmKasa();
+                fr14.ad = kullanici;
+                fr14=new  FrmKasa();
+                fr14.MdiParent=this;
+                fr14.Show();
+
+
+            }
+        }
+        public string kullanici;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

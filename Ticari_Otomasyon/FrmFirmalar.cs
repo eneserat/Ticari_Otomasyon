@@ -100,29 +100,29 @@ namespace Ticari_Otomasyon
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            DataTable dt = new DataTable();
-            SqlCommand sqlCommand = new SqlCommand("Select * From TBL_FİRMALAR where FİRMAID=@p1", bgl.baglanti());
-            sqlCommand.Parameters.AddWithValue("@p1", gridView1.GetFocusedRowCellValue("FİRMAID").ToString());
-            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-            da.Fill(dt);
-            txtİd.Text = dt.Rows[0][0].ToString();
-            txtFirmaAd.Text = dt.Rows[0][1].ToString();
-            txtYetkılıStatu.Text = dt.Rows[0][2].ToString();
-            txtYetkılı.Text=dt.Rows[0][3].ToString();
-            mskTc.Text= dt.Rows[0][4].ToString();
-            mskTelefon1.Text = dt.Rows[0][5].ToString();
-            mskTelefon2.Text = dt.Rows[0][6].ToString();
-            mskTelefon3.Text = dt.Rows[0][7].ToString();
-            txtFaks.Text = dt.Rows[0][8].ToString();
-            textEdit6.Text=dt.Rows[0][9].ToString();
-            Cmbil.Text = dt.Rows[0][10].ToString();
-            Cmbİlce.Text = dt.Rows[0][11].ToString();
-            textEdit9.Text = dt.Rows[0][12].ToString();
-            richTextBox1.Text = dt.Rows[0][13].ToString();
-            textEdit5.Text=dt.Rows[0][14].ToString();
-            textEdit4.Text=dt.Rows[0][15].ToString();
-            textEdit3.Text=dt.Rows[0][16].ToString();
-            textEdit1.Text=dt.Rows[0][17].ToString();
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            if (dr != null)
+            {
+                textEdit2.Text = dr["FİRMAID"].ToString();
+                textEdit7.Text = dr["AD"].ToString();
+                textEdit8.Text = dr["SEKTOR"].ToString();
+                textEdit10.Text = dr["YETKILIADSOYAD"].ToString();
+                textEdit11.Text = dr["YETKILISTATU"].ToString();
+                maskedTextBox1.Text = dr["YETKILITC"].ToString();
+                maskedTextBox2.Text = dr["TELEFON1"].ToString();
+                maskedTextBox3.Text = dr["TELEFON2"].ToString();
+                maskedTextBox4.Text = dr["TELEFON3"].ToString();
+                textEdit12.Text = dr["FAX"].ToString();
+                textEdit13.Text = dr["MAIL"].ToString();
+                comboBoxEdit1.Text = dr["IL"].ToString();
+                comboBoxEdit2.Text = dr["ILCE"].ToString();
+                comboBoxEdit2.Text = dr["ILCE"].ToString();
+                textEdit14.Text = dr["VERGIDAIRE"].ToString();
+                textEdit14.Text = dr["VERGIDAIRE"].ToString();
+                richTextBox5.Text = dr["ADRES"].ToString();
+
+            }
+
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
