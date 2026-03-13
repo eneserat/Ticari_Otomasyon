@@ -202,6 +202,7 @@
             this.btnAnaSayfa.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAnaSayfa.ItemInMenuAppearance.Hovered.Options.UseFont = true;
             this.btnAnaSayfa.Name = "btnAnaSayfa";
+            this.btnAnaSayfa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAnaSayfa_ItemClick);
             // 
             // btnPersoneller
             // 
